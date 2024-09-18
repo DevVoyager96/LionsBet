@@ -1,4 +1,4 @@
-import User from "../../database/models/user-model";
+import User from "../../database/models/user-model.js";
 
 const store = () => {
   try {
@@ -43,5 +43,13 @@ const update = async (req, res) => {
     } catch (error) {
         res.status(400).json(error);
     }
+}
+
+export default {
+    store,
+    index,
+    show,
+    update,
+    destroy
 }
 
