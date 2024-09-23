@@ -1,12 +1,11 @@
-
 import e from "express";
-import roullet_bet_controller from "../controllers/roullet-bet-controller.js"
+import roullete_bet_controller from "../controllers/roullete-bet-controller.js"
 
 const router = e.Router();
 
-router.post("/", roullet_bet_controller.store)
-router.get("/", roullet_bet_controller.index)
-router.get("/:id", roullet_bet_controller.show)
-router.put("/:id", roullet_bet_controller.update)
+router.post("/", roullete_bet_controller.store)
+router.get("/", roullete_bet_controller.index)
+router.get("/:id", roullete_bet_controller.show)
+router.put("/:id", roullete_bet_controller.update)
 
 export default router

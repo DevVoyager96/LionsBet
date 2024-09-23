@@ -1,8 +1,8 @@
 import User from "../../database/models/user-model.js";
 
-const store = () => {
+const store = async (req, res) => {
   try {
-    User.create(req.body);
+    await User.create(req.body);
     res.json();
   } catch (error) {
     res.status(400).json(error);
@@ -20,16 +20,7 @@ const index = async (req, res) => {
 
 const show = async (req, res) => {
     try {
-        const content = await User.find(req.query).exec()
-        res.json(content);
-    } catch (error) {
-        res.status(400).json(error);
-    }
-}
-
-const destroy = async (req, res) => {
-    try {
-        const content = await User.find(req.query).exec()
+        const content = await User.findById(req.params.id).exec()
         res.json(content);
     } catch (error) {
         res.status(400).json(error);
@@ -38,8 +29,17 @@ const destroy = async (req, res) => {
 
 const update = async (req, res) => {
     try {
-        const content = await User.find(req.query).exec()
-        res.json(content);
+        await User.findByIdAndUpdate(req.params.id).exec()
+        res.json();
+    } catch (error) {
+        res.status(400).json(error);
+    }
+}
+
+const destroy = async (req, res) => {
+    try {
+        await User.findByIdAndDelete(req.params.id).exec()
+        res.json();
     } catch (error) {
         res.status(400).json(error);
     }
@@ -52,4 +52,3 @@ export default {
     update,
     destroy
 }
-

@@ -1,4 +1,4 @@
-import conn from "./conn.js"
+import conn from "./conn.js";
 
 const Schema = conn.Schema;
 
@@ -10,13 +10,20 @@ const betSchema = new Schema({
     value: {
         type: Schema.Types.Number,
         required: true,
-        min: 1 
+        min: 1
     },
-    value: {
-        type: Schema.Types.Number,
+    status: {
+        type: Schema.Types.String,
+        enum: ["WON", "LOST", "TIED"],
         required: true,
-        min: 1 
-
+    },
+    paymentStatus: {
+        type: Schema.Types.String,
+        enum: ["FINISHED", "PENDING", "REFUSED", "CANCELLED"],
+        default: "PENDING",
+    },
+}, {
+    timestamps: true
 })
 
 export default betSchema

@@ -1,8 +1,8 @@
-import competitor from "../../database/models/competitor-model.js";
+import Competitor from "../../database/models/competitor-model.js";
 
 const store = () => {
   try {
-    competitor.create(req.body);
+    Competitor.create(req.body);
     res.json();
   } catch (error) {
     res.status(400).json(error);
@@ -11,7 +11,7 @@ const store = () => {
 
 const index = async (req, res) => {
     try {
-        const content = await competitor.find(req.query).exec()
+        const content = await Competitor.find(req.query).exec()
         res.json(content);
     } catch (error) {
         res.status(400).json(error);
@@ -20,7 +20,7 @@ const index = async (req, res) => {
 
 const show = async (req, res) => {
     try {
-        const content = await competitor.find(req.query).exec()
+        const content = await Competitor.find(req.query).exec()
         res.json(content);
     } catch (error) {
         res.status(400).json(error);
@@ -29,7 +29,7 @@ const show = async (req, res) => {
 
 const destroy = async (req, res) => {
     try {
-        const content = await competitor.find(req.query).exec()
+        const content = await Competitor.find(req.query).exec()
         res.json(content);
     } catch (error) {
         res.status(400).json(error);
@@ -38,7 +38,7 @@ const destroy = async (req, res) => {
 
 const update = async (req, res) => {
     try {
-        const content = await competitor.find(req.query).exec()
+        const content = await Competitor.find(req.query).exec()
         res.json(content);
     } catch (error) {
         res.status(400).json(error);

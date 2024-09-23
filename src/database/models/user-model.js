@@ -9,8 +9,8 @@ const rechargeSchema = new Schema({
   },
   status: {
     type: Schema.Types.String,
-    enum: ["FINALIZADA", "PENDENTE", "RECUSADA", "CANCELADA"],
-    default: "PENDENTE",
+    enum: ["FINISHED", "PENDING", "REFUSED", "CANCELLED"],
+    default: "PENDING",
   },
 });
 
@@ -56,13 +56,13 @@ const userSchema = new Schema({
   password: {
     type: Schema.Types.String,
     required: true,
-    validate: {
-      validator(v) {
-        return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
-          v
-        );
-      },
-    },
+    // validate: {
+    //   validator(v) {
+    //     return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
+    //       v
+    //     );
+    //   },
+    // },
   },
   wallet: walletSchema,
   acceptedTerms: {

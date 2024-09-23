@@ -1,8 +1,8 @@
 import match from "../../database/models/match-model.js";
 
-const store = () => {
+const store = async (req, res) => {
   try {
-    match.create(req.body);
+    await match.create(req.body);
     res.json();
   } catch (error) {
     res.status(400).json(error);
